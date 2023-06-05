@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div class="" id="root"></div>
+    <script type="text/babel">
+        function Button({href,title,onClick}){
+            //khi click vao 1 component thì có thể thực hiện 2 tác vụ cùng lúc: vừa chuyển trang, vừa console.log
+            let Component = 'button'
+            // const props = {}
+            if(href){
+                Component = 'a'
+                // props.href = href
+            }
+            // if(onClick){
+            //     props.onClick = onClick
+            // }
+
+            return <Component href = {href} onClick={onClick}>{title}</Component>
+        }
+
+        function App(){
+            return <div className='wrapper'>
+                <Button
+                    href='https://www.facebook.com/'
+                    title = 'click me!!!'
+                    onClick= {()=>console.log(Math.random())}
+                />
+                </div>
+        }
+
+        ReactDOM.render(<App/>, document.getElementById('root'))
+    </script>
+</body>
+</html>
